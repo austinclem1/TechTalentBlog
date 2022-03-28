@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Post</title>
+    <div th:replace="fragments/styling :: head-style"></div>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/navbar :: navbar" ></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 th:text="${blogPost.title}"></h1>
+                </div>
+                <div class="panel-body">
+                    <strong><p th:text="${blogPost.author}"/></strong>
+                    <p th:text="${blogPost.blogEntry}" />
+                </div>
+                <div class="panel-footer">
+                    <a class="btn btn-success" th:href="@{/}">Back To Home Page</a>
+                    <a class="btn btn-light" th:href="@{/blogposts/{id}(id=${blogPost.id})}">Edit Post</a>
+                    <a class="btn btn-primary" th:href="@{/blogposts/new}">Submit a New Blog Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/styling :: body-links"></div>
+</body>
+</html>
